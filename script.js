@@ -9,19 +9,14 @@ const { ReadlineParser } = require("@serialport/parser-readline");
 const parsers = SerialPort.parsers;
 const parser = new ReadlineParser({ delimiter: "\r\n" });
 
-const SERIAL_PORT_PATH = '/dev/cu.usbserial-10';
-const BAUD_RATE = 115200;
-const DATA_BITS = 8;
-const PARITY = 'none';
-const STOP_BITS = 1;
-
-
 const port = new SerialPort.SerialPort({
-  path: SERIAL_PORT_PATH,
-  baudRate: BAUD_RATE,
-  dataBits: DATA_BITS,
-  parity: PARITY,
-  stopBits: STOP_BITS,
+  path: "COM4",
+  baudRate: 115200,
+  dataBits: 8,
+  parity: "none",
+  stopBits: 1,
+  flowControl: false
+
 });
 
 port.pipe(parser);
